@@ -2,8 +2,6 @@
 
 Alma Self-Checkout application (fork) that can run in a contact-free environment (using a scanner).
 
-![screenshot](https://user-images.githubusercontent.com/4253884/101934461-3cc23280-3ba3-11eb-8edc-beb6bbe9e80a.png)
-
 ## About
 
 This web app utilizes the Alma API to power a self checkout station. There are two components to the selfcheck app: a client and a server.
