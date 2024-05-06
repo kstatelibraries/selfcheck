@@ -18,18 +18,18 @@ const LogoutInstruction = () => (
 const bg_blue_200_alpha_80 = "rgba(226, 232, 240, 0.8)"
 
 const CheckoutLayout = ({ libraryLogo, library, organization, userName, userLoans, userRequests, userFines, timeout, timeLimit, checkoutBook, books, showAlert, alertMessage }) =>
-	<div class="h-screen w-screen flex flex-col bg-gray-200">
+	<div class="h-screen w-screen flex flex-col">
 
 		{/* <!-- Header Bar --> */}
-		<div class="flex-shrink bg-blue-400 flex content-between items-center p-2 shadow-md" style={{ zIndex: 1 }}>
+		<div class="flex-shrink bg-csu-green flex content-between items-center p-2 shadow-md" style={{ zIndex: 1 }}>
 
 			{/* <!-- Library Name --> */}
 			<div class="flex-auto text-gray-100 m-2">
 				<div class="flex flex-col">
-					<div class="font-light text-2xl">
+					<div class="font-light text-2xl text-text-on-csu-green">
 						{library}
 					</div>
-					<div class="font-extrabold text-sm uppercase">
+					<div class="font-extrabold text-sm uppercase text-text-on-csu-green">
 						{organization}
 					</div>
 				</div>
@@ -37,9 +37,9 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, userLoan
 
 			{/* <!-- User Details --> */}
 			<div class="flex-auto flex flex-row justify-end items-center">
-				<UserCircleIcon classes="w-10 h-10 m-2 text-blue-100" />
+				<UserCircleIcon classes="w-10 h-10 m-2 text-text-on-csu-green" />
 
-				<div class="text-2xl mr-4 text-white">
+				<div class="text-2xl mr-4 text-text-on-csu-green">
 					{userName}
 				</div>
 
@@ -89,8 +89,8 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, userLoan
 					<img src={libraryLogo} class="h-24 z-0" alt={`${library} at ${organization} logo`} />
 				</div>
 			)}
-			<div class="bg-blue-400" style={{ width: (100 - timeout / timeLimit * 100) + "%" }}>
-				<div class="text-blue-100 uppercase text-sm font-bold px-4 py-1 whitespace-nowrap">
+			<div class="bg-csu-green" style={{ width: (100 - timeout / timeLimit * 100) + "%" }}>
+				<div class="text-text-on-csu-green uppercase text-sm font-bold px-4 py-1 whitespace-nowrap">
 					Logging out in {Math.round(timeout)} seconds
 				</div>
 			</div>

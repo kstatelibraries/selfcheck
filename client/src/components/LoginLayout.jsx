@@ -10,12 +10,12 @@ const LoginLayout = ({ backgroundImageUrl, libraryLogo, library, organization, l
 				backgroundSize: "cover"
 			}}
 		/>}
-		<div class="flex-auto bg-gray-200 flex flex-col justify-center items-center">
+		<div class="flex-auto bg-csu-green flex flex-col justify-center items-center">
 			<div class="flex-grow flex flex-col justify-end mb-8 text-center">
-				<div class="font-light text-3xl">
+				<div class="font-light text-3xl text-text-on-csu-green">
 					Self-Checkout for {library}
 				</div>
-				<div class="font-bold text-lg uppercase">
+				<div class="font-bold text-lg uppercase text-text-on-csu-green">
 					{organization}
 				</div>
 			</div>

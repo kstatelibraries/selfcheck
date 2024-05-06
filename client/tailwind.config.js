@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.blueGray,
+        'csu-green': '#1e4d2b',
+        'text-on-csu-green': '#ffffff',
       },
     },
   },
