@@ -21,7 +21,7 @@
   "homepage": "https://github.com/wc-library/selfcheck#readme",
   "dependencies": {
     "@types/jquery": "^3.3.38",
-    "axios": "^0.19.2",
+    "axios": "^1.6.8",
     "express": "^4.17.1",
     "fs": "^0.0.1-security"
   }
