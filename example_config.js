@@ -2,6 +2,7 @@
 module.exports = {
     "hostname": "https://api-na.hosted.exlibrisgroup.com",
     "apiKey": "XXXXXXXXXXXXXXXXXXXX",
+    "logLocation": "/var/log/selfcheck/",
     "locations": [{
         "libraryLogoUrl": "url/to/image.jpg",
         "featureImageUrl": "url/to/image.jpg",
