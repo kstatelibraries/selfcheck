@@ -14,7 +14,6 @@ async function login({ userBarcode }) {
 		try {
 			const userResponse = await fetch(loginUrl(userBarcode))
 			const user = await userResponse.json()
-			console.log(user)
 
 			const first_name = user.pref_first_name || user.first_name
 			const last_name = user.pref_last_name || user.last_name
@@ -25,8 +24,6 @@ async function login({ userBarcode }) {
 			}
 		}
 		catch (error) {
-			console.error("Failed to login")
-			console.error(error)
 			return {
 				failureMessage: "Could not log in. Please try again or ask for help at the circulation desk."
 			}
