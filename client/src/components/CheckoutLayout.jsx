@@ -1,4 +1,3 @@
-import PillBox from "./PillBox"
 import {
 	UserCircleIcon,
 	BookOpenIcon
@@ -7,9 +6,15 @@ import AlertBox from "./AlertBox"
 import InputBox from "./InputBox"
 import BookTable from "./BookTable"
 
-const LogoutInstruction = () => (
-	<div class="text-center text-2xl font-bold text-gray-400 opacity-50">
-		To log out, scan your ID again.
+const LogoutInstruction = (props) => (
+	<button onClick={props.doLogout} class="text-center text-2xl font-bold text-text-on-csu-green bg-csu-green p-5 mb-10							">
+		Click here or scan your ID again to log out.
+	</button>
+)
+
+const BookTablePlaceholder = () => (
+	<div class="text-center text-2xl font-bold text-black">
+		No books checked out yet.
 	</div>
 )
 
@@ -17,7 +22,7 @@ const LogoutInstruction = () => (
 // for the booktable if it expands into the white logo area
 const bg_blue_200_alpha_80 = "rgba(226, 232, 240, 0.8)"
 
-const CheckoutLayout = ({ libraryLogo, library, organization, userName, userLoans, userRequests, userFines, timeout, timeLimit, checkoutBook, books, showAlert, alertMessage }) =>
+const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout, timeLimit, checkoutBook, books, showAlert, alertMessage, logout }) =>
 	<div class="h-screen w-screen flex flex-col">
 
 		{/* <!-- Header Bar --> */}
@@ -42,17 +47,6 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, userLoan
 				<div class="text-2xl mr-4 text-text-on-csu-green">
 					{userName}
 				</div>
-
-				{/* <!-- State Pills --> */}
-				<PillBox
-					title={"Loans"}
-					value={userLoans} />
-				<PillBox
-					title={"Requests"}
-					value={userRequests} />
-				<PillBox
-					title={"Fines & Fees"}
-					value={"$" + userFines} />
 			</div>
 		</div>
 
@@ -75,8 +69,9 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, userLoan
 
 			{/* <!-- Book Table --> */}
 			<div class="flex-auto w-3/4 px-8 mt-2 z-10">
+				<LogoutInstruction doLogout={logout} />
 				<div class="p-5 rounded" style={{ background: bg_blue_200_alpha_80 }}>
-					{books.length === 0 ? <LogoutInstruction /> : null}
+					{books.length === 0 ? <BookTablePlaceholder /> : null}
 					<BookTable books={books} rowLimit={5} />
 				</div>
 			</div>

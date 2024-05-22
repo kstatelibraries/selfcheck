@@ -167,6 +167,7 @@ class App extends Component {
 				checkoutBook={this.doCheckoutBook.bind(this)}
 				showAlert={this.state.showCheckoutAlert}
 				alertMessage={this.state.checkoutAlertMessage}
+				logout={this.doLogout.bind(this)}
 			/>
 		}
 		else {

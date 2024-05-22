@@ -125,7 +125,7 @@ function get_api_user(id) {
 	const options = {
 		baseURL: config.hostname,
 		port: 443,
-		url: '/almaws/v1/users/' + id + '?expand=loans,requests,fees&format=json',
+		url: '/almaws/v1/users/' + id + '?format=json',
 		method: 'get',
 		headers: {
 			Authorization: `apikey ${config.apiKey}`

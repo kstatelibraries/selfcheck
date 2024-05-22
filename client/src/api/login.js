@@ -21,9 +21,6 @@ async function login({ userBarcode }) {
 
 			return {
 				userName: first_name + " " + last_name,
-				userLoans: user.loans.value,
-				userRequests: user.requests.value,
-				userFines: user.fees.value,
 				userId: user.primary_id
 			}
 		}
