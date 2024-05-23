@@ -5,6 +5,7 @@ const express = require('express')
 const axios = require('axios')
 const bodyParser = require('body-parser')
 const fs = require('fs');
+require("log-timestamp");
 
 // 
 // Setup server values
