@@ -5,6 +5,7 @@ import {
 import AlertBox from "./AlertBox"
 import InputBox from "./InputBox"
 import BookTable from "./BookTable"
+import NotificationBox from "./NotificationBox"
 
 const LogoutInstruction = (props) => (
 	<button onClick={props.doLogout} class="text-center text-2xl font-bold text-text-on-csu-green bg-csu-green p-5 mb-10							">
@@ -22,7 +23,7 @@ const BookTablePlaceholder = () => (
 // for the booktable if it expands into the white logo area
 const bg_blue_200_alpha_80 = "rgba(226, 232, 240, 0.8)"
 
-const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout, timeLimit, checkoutBook, books, showAlert, alertMessage, logout }) =>
+const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout, timeLimit, checkoutBook, books, showAlert, alertMessage, showNotification, notificationMessage, logout }) =>
 	<div class="h-screen w-screen flex flex-col">
 
 		{/* <!-- Header Bar --> */}
@@ -66,6 +67,9 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout,
 			<AlertBox visible={showAlert} >
 				{alertMessage}
 			</AlertBox>
+			<NotificationBox visible={showNotification} >
+				{notificationMessage}
+			</NotificationBox>
 
 			{/* <!-- Book Table --> */}
 			<div class="flex-auto w-3/4 px-8 mt-2 z-10">

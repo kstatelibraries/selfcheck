@@ -632,6 +632,11 @@ img {
   border-bottom-width: 1px;
 }
 
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgba(0, 0, 0, var(--tw-border-opacity));
+}
+
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgba(148, 163, 184, var(--tw-border-opacity));
@@ -810,6 +815,11 @@ img {
 .text-blue-800 {
   --tw-text-opacity: 1;
   color: rgba(30, 64, 175, var(--tw-text-opacity));
+}
+
+.text-csu-green {
+  --tw-text-opacity: 1;
+  color: rgba(30, 77, 43, var(--tw-text-opacity));
 }
 
 .text-text-on-csu-green {

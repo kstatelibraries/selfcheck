@@ -22,10 +22,14 @@ const LOGGED_OUT_STATE = {
 	userFines: 0,
 	userId: null,
 	loginAlertMessage: "",
+	loginNofiticationMessage: "",
 	showLoginAlert: false,
+	showLoginNotification: false,
 	logoutTimeLeft: LOGOUT_TIME_LIMIT,
 	showCheckoutAlert: false,
+	showCheckoutNotification: false,
 	checkoutAlertMessage: "",
+	checkoutNotificationMessage: "",
 	booksCheckedOut: [],
 }
 
@@ -41,7 +45,7 @@ class App extends Component {
 		}, LOGGED_OUT_STATE)
 	}
 	async doLogin(userBarcode) {
-		this.setState({showLoginAlert: true, loginAlertMessage: "Finding user."})
+		this.setState({showLoginNotification: true, loginNotificationMessage: "Finding user."})
 		const newUser = await login({ userBarcode })
 		if ("failureMessage" in newUser) {
 			this.setState({ loginAlertMessage: newUser.failureMessage, showLoginAlert: true })
@@ -55,6 +59,7 @@ class App extends Component {
 			this.setState({
 				userName, userLoans, userRequests, userFines, userId,
 				showLoginAlert: false,
+				showLoginNotification: false,
 				logoutTimeLeft: LOGOUT_TIME_LIMIT,
 				loggedIn: true,
 			})
@@ -62,15 +67,16 @@ class App extends Component {
 		}
 	}
 	doLogout() {
-		this.setState({showLoginAlert: true, loginAlertMessage: "Ending session."})
+		this.setState({showLoginAlert: true, loginNotificationMessage: "Ending session."})
 		this.setState(Object.assign({}, LOGGED_OUT_STATE))
 	}
 	async doCheckoutBook(bookBarcode) {
+		this.setState({showCheckoutAlert: false, showCheckoutNotification: false});
 		// Allow Logout by scanning barcode
 		if (bookBarcode === this.userBarcode) {
 			return this.doLogout()
 		}
-		this.setState({showCheckoutAlert: true, checkoutAlertMessage: "Checking out item." })
+		this.setState({showCheckoutNotification: true, checkoutNotificationMessage: "Checking out item." })
 
 		const checkedOutBarcodes = this.state.booksCheckedOut.map(b => b.barcode)
 		if (checkedOutBarcodes.includes(bookBarcode)) {
@@ -85,6 +91,7 @@ class App extends Component {
 			return this.setState({
 				logoutTimeLeft: LOGOUT_TIME_LIMIT,
 				showCheckoutAlert: false,
+				showCheckoutNotification: false,
 				booksCheckedOut,
 			})
 		}
@@ -97,18 +104,16 @@ class App extends Component {
 			this.setState({
 				logoutTimeLeft: LOGOUT_TIME_LIMIT,
 				showCheckoutAlert: true,
+				showCheckoutNotification: false,
 				checkoutAlertMessage: newBook.failureMessage
 			})
-			window.clearTimeout(this.checkoutFailureMessageTimeout)
-			this.checkoutFailureMessageTimeout = window.setTimeout(() => {
-				this.setState({ showCheckoutAlert: false })
-			}, CHECKOUT_ALERT_TIMEOUT_SECONDS * 1000)
 		}
 		else {
 			// Successfully checked out book
 			this.setState({
 				logoutTimeLeft: LOGOUT_TIME_LIMIT,
 				showCheckoutAlert: false,
+				showCheckoutNotification: false,
 				booksCheckedOut: [newBook].concat(this.state.booksCheckedOut)
 			})
 		}
@@ -167,6 +172,8 @@ class App extends Component {
 				checkoutBook={this.doCheckoutBook.bind(this)}
 				showAlert={this.state.showCheckoutAlert}
 				alertMessage={this.state.checkoutAlertMessage}
+				showNotification={this.state.showCheckoutNotification}
+				notificationMessage={this.state.checkoutNotificationMessage}
 				logout={this.doLogout.bind(this)}
 			/>
 		}
@@ -179,6 +186,8 @@ class App extends Component {
 				login={this.doLogin.bind(this)}
 				showAlert={this.state.showLoginAlert}
 				alertMessage={this.state.loginAlertMessage}
+				showNotification={this.state.showLoginNotification}
+				notificationMessage={this.state.loginNotificationMessage}
 			/>
 		}
 	}

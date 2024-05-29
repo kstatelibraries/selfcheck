@@ -1,8 +1,9 @@
 import InputBox from './InputBox'
 import AlertBox from './AlertBox'
+import NotificationBox from './NotificationBox'
 import { IdentificationIcon } from "./Icons"
 
-const LoginLayout = ({ backgroundImageUrl, libraryLogo, library, organization, login, alertMessage, showAlert }) =>
+const LoginLayout = ({ backgroundImageUrl, libraryLogo, library, organization, login, alertMessage, showAlert, notificationMessage, showNotification }) =>
 	<div class="h-screen w-screen flex flex-row">
 		{backgroundImageUrl && <div class="lg:flex-auto bg-blue-100 text-gray-200"
 			style={{
@@ -31,6 +32,9 @@ const LoginLayout = ({ backgroundImageUrl, libraryLogo, library, organization, l
 				<AlertBox visible={showAlert}>
 					{alertMessage}
 				</AlertBox>
+				<NotificationBox visible={showNotification}>
+					{notificationMessage}
+				</NotificationBox>
 			</div>
 			<div class="flex-grow flex flex-col justify-end w-full">
 				{libraryLogo && (
