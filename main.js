@@ -58,7 +58,6 @@ app.get('/users/:userId', (req, res) => {
 })
 app.get('/users/:userId/loans?', jsonParser, (req, res) => {
 	console.log(req.query.item_barcode)
-	console.log(req.body)
 	const ipAddress = req.ip.split(":").pop()
 	requestLoan(req.params, req.query, ipAddress, req.body, res)
 })
@@ -92,7 +91,6 @@ app.get('/whoami', (req, res) => {
 app.listen(port, () => console.log(`Selfcheck has started listening at ${port}`))
 
 async function getUser(params, res) {
-	console.log(`Retrieving user with id ${params.userId}.`)
 
 	let user = await get_api_user(params.userId)
 	if (!user) {
@@ -105,14 +103,12 @@ async function requestLoan(params, query, ip, body, res) {
 	console.log(`Loan processing started ${JSON.stringify(params)} and ${JSON.stringify(query)} and ${JSON.stringify(body)}`)
 
 	let loan = await api_request_loan(params.userId, ip, query.item_barcode)
-	console.log(loan)
 
 	if (loan.error) {
 		console.log("API returned with error")
 		return res.json({ error: loan.error[0].errorMessage })
 	} else if (loan) {
 		console.log("successfully loaned book to user")
-		console.log(loan)
 		return res.json(loan)
 	} else {
 		console.log("No error from API but something else went wrong")
