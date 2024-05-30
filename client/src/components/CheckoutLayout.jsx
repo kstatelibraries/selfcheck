@@ -8,9 +8,9 @@ import BookTable from "./BookTable"
 import NotificationBox from "./NotificationBox"
 
 const LogoutInstruction = (props) => (
-	<button onClick={props.doLogout} class="text-center text-2xl font-bold text-text-on-csu-green bg-csu-green p-5 mb-10							">
-		Click here or scan your ID again to log out.
-	</button>
+	<div class="text-center text-2xl font-bold text-text-on-csu-green bg-csu-green p-5 mb-10							">
+		Scan your ID again to log out.
+	</div>
 )
 
 const BookTablePlaceholder = () => (
