@@ -7,12 +7,6 @@ import InputBox from "./InputBox"
 import BookTable from "./BookTable"
 import NotificationBox from "./NotificationBox"
 
-const LogoutInstruction = (props) => (
-	<div class="text-center text-2xl font-bold text-text-on-csu-green bg-csu-green p-5 mb-10							">
-		Scan your ID again to log out.
-	</div>
-)
-
 const BookTablePlaceholder = () => (
 	<div class="text-center text-2xl font-bold text-black">
 		No books checked out yet.
@@ -73,7 +67,6 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout,
 
 			{/* <!-- Book Table --> */}
 			<div class="flex-auto w-3/4 px-8 mt-2 z-10">
-				<LogoutInstruction doLogout={logout} />
 				<div class="p-5 rounded" style={{ background: bg_blue_200_alpha_80 }}>
 					{books.length === 0 ? <BookTablePlaceholder /> : null}
 					<BookTable books={books} rowLimit={5} />
