@@ -4,15 +4,15 @@ Alma Self-Checkout application (fork) that can run in a contact-free environment
 
 ## About
 
-### CSU Specific
+### KSU Specific
 
-CSU Libraries forked this as a PoC for self-checkout in Vet teaching hospital library.
+K-State Libraries  forked this as a PoC for self-checkout in Vet teaching hospital library.
 
 It is deployed to libutil, and has DNS at selfcheck.library.colostate.edu.
 
 It is managed with systemd, so to start/stop/restart use the appropriate `systemctl` functions.
 
-It is deployed with Ansible, so if changes need to be made make them to the csu-branded branch of this repo, then on the Ansible host run the libutil playbook with the `selfcheck` flag to deploy changes.
+It is deployed with Ansible, so if changes need to be made make them to the ksu-branded branch of this repo, then on the Ansible host run the libutil playbook with the `selfcheck` flag to deploy changes.
 
 To change the timeout, change the `LOGOUT_TIME_LIMIT` value in `client/src/App.js` and rebuild/redploy with Ansible.
 

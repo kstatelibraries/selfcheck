@@ -20,7 +20,7 @@ class InputBox extends Component {
 	render() {
 		const { Icon } = this.props
 		return (
-			<div class="flex bg-gray-50 rounded-lg border-csu-green border-4" >
+			<div class="flex bg-gray-50 rounded-lg border-ksu-purple border-4" >
 				<div class="flex-none flex items-center m-5">
 					<Icon classes={"w-8 h-8"} />
 				</div>
@@ -32,7 +32,7 @@ class InputBox extends Component {
 							this.onClick()
 						}
 					}} />
-				<button onClick={this.onClick.bind(this)} href="#" class="flex-none flex items-center m-2 p-2 rounded cursor-pointer bg-csu-green text-text-on-csu-green hover:bg-blue-500 hover:text-white hover:shadow-md active:bg-blue-600">
+				<button onClick={this.onClick.bind(this)} href="#" class="flex-none flex items-center m-2 p-2 rounded cursor-pointer bg-ksu-purple text-text-on-ksu-purple hover:bg-blue-500 hover:text-white hover:shadow-md active:bg-blue-600">
 					<ArrowCircleLeftIcon classes="w-10 h-10" />
 				</button>
 			</div>

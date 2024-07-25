@@ -21,15 +21,15 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout,
 	<div class="h-screen w-screen flex flex-col">
 
 		{/* <!-- Header Bar --> */}
-		<div class="flex-shrink bg-csu-green flex content-between items-center p-2 shadow-md" style={{ zIndex: 1 }}>
+		<div class="flex-shrink bg-ksu-purple flex content-between items-center p-2 shadow-md" style={{ zIndex: 1 }}>
 
 			{/* <!-- Library Name --> */}
 			<div class="flex-auto text-gray-100 m-2">
 				<div class="flex flex-col">
-					<div class="font-light text-2xl text-text-on-csu-green">
+					<div class="font-light text-2xl text-text-on-ksu-purple">
 						{library}
 					</div>
-					<div class="font-extrabold text-sm uppercase text-text-on-csu-green">
+					<div class="font-extrabold text-sm uppercase text-text-on-ksu-purple">
 						{organization}
 					</div>
 				</div>
@@ -37,9 +37,9 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout,
 
 			{/* <!-- User Details --> */}
 			<div class="flex-auto flex flex-row justify-end items-center">
-				<UserCircleIcon classes="w-10 h-10 m-2 text-text-on-csu-green" />
+				<UserCircleIcon classes="w-10 h-10 m-2 text-text-on-ksu-purple" />
 
-				<div class="text-2xl mr-4 text-text-on-csu-green">
+				<div class="text-2xl mr-4 text-text-on-ksu-purple">
 					{userName}
 				</div>
 			</div>
@@ -81,8 +81,8 @@ const CheckoutLayout = ({ libraryLogo, library, organization, userName, timeout,
 					<img src={libraryLogo} class="h-24 z-0" alt={`${library} at ${organization} logo`} />
 				</div>
 			)}
-			<div class="bg-csu-green" style={{ width: (100 - timeout / timeLimit * 100) + "%" }}>
-				<div class="text-text-on-csu-green uppercase text-sm font-bold px-4 py-1 whitespace-nowrap">
+			<div class="bg-ksu-purple" style={{ width: (100 - timeout / timeLimit * 100) + "%" }}>
+				<div class="text-text-on-ksu-purple uppercase text-sm font-bold px-4 py-1 whitespace-nowrap">
 					Logging out in {Math.round(timeout)} seconds
 				</div>
 			</div>

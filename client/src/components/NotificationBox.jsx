@@ -14,7 +14,7 @@ const NotificationBox = ({ children, visible }) => [
 		}
 	`}</style>,
 	<div class={`flex flex-row items-center m-4 bg-white rounded-lg border-2 border-black p-2 ${visible ? "--show-alert" : "--hide-alert"}`}>
-		<div class="mx-2 text-csu-green">
+		<div class="mx-2 text-ksu-purple">
 			{children}
 		</div>
 	</div>]
