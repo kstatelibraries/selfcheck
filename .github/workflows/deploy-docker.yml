@@ -24,7 +24,7 @@ jobs:
   tools:
     # Ensure this job never runs on forked repos. It's only executed for 'kstatelibrariesit/selfcheck'
     if: github.repository == 'kstatelibraries/selfcheck'
-    uses: kstatelibraries/kstatelibraries/.github/workflows/reusable-docker-build.yml@main
+    uses: kstatelibraries/.github/.github/workflows/reusable-docker-build.yml@main
     with:
       build_id: tools
       image_name: kstatelibraries/selfcheck
