@@ -113,7 +113,8 @@ class App extends Component {
 			this.setState({
 				logoutTimeLeft: LOGOUT_TIME_LIMIT,
 				showCheckoutAlert: false,
-				showCheckoutNotification: false,
+				showCheckoutNotification: true,
+				checkoutNotificationMessage: newBook.bookString + " was successfully checked out!",
 				booksCheckedOut: [newBook].concat(this.state.booksCheckedOut)
 			})
 		}
